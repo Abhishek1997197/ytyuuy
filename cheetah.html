@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheetah</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-next="elephant.html" data-prev="tiger.html">
+  <img src="https://cdn.britannica.com/52/152452-050-9C11AEDD/Cheetah-acinonyx-jubatus-running-kenya.jpg?w=300" alt="Cheetah" />
+  <div class="header-boxes">
+    <div class="header-box">2025-04-24</div>
+    <div class="header-box">Cheetah</div>
+  </div>
+  <div class="description">lion, (Panthera leo), large, powerfully built cat (family Felidae) that is second in size only to the tiger; it is a famous apex predator (meaning without a natural predator or enemy). The proverbial “king of beasts,” the lion has been one of the best-known wild animals since earliest times. Lions are most active at night and live in a variety of habitats but prefer grassland, savanna, dense scrub, and open woodland.</div>
+  <div class="diet-box"><a href="https://en.wikipedia.org/wiki/Carnivore" target="_blank">Carnivore</a></div>
+  
+<script>
+  let startX = 0;
+  document.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  document.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+    const next = document.body.dataset.next;
+    const prev = document.body.dataset.prev;
+
+    if (startX - endX > 50 && next) {
+      window.location.href = next;
+    } else if (endX - startX > 50 && prev) {
+      window.location.href = prev;
+    }
+  });
+</script>
+
+</body>
+</html>

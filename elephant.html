@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elephant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-next="index.html" data-prev="cheetah.html">
+  <img src="https://cdn.britannica.com/02/152302-050-1A984FCB/African-savanna-elephant.jpg" alt="Elephant" />
+  <div class="header-boxes">
+    <div class="header-box">2025-04-24</div>
+    <div class="header-box">Elephant</div>
+  </div>
+  <div class="description">The lion (Panthera leo) is a large, powerfully built cat, second in size only to the tiger. Known as the "king of beasts," it is a famous apex predator with no natural enemies. Lions are most active at night and inhabit grasslands, savannas, dense scrub, and open woodlands. Once widespread across Europe, Asia, and Africa, their range is now mainly limited to sub-Saharan Africa. A small, protected population of about 500–700 Asiatic lions lives in India’s Gir National Park. Recognized since ancient times, lions remain one of the most iconic and well-known wild animals in the world.</div>
+  <div class="diet-box"><a href="https://en.wikipedia.org/wiki/Herbivore" target="_blank">Herbivore</a></div>
+  
+<script>
+  let startX = 0;
+  document.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  document.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+    const next = document.body.dataset.next;
+    const prev = document.body.dataset.prev;
+
+    if (startX - endX > 50 && next) {
+      window.location.href = next;
+    } else if (endX - startX > 50 && prev) {
+      window.location.href = prev;
+    }
+  });
+</script>
+
+</body>
+</html>

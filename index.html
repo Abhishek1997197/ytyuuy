@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lion</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-next="tiger.html" data-prev="elephant.html">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg/1280px-020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg" alt="Lion" />
+  <div class="header-boxes">
+    <div class="header-box">2025-04-24</div>
+    <div class="header-box">Lion</div>
+  </div>
+  <div class="description">lion, (Panthera leo), large, powerfully built cat (family Felidae) that is second in size only to the tiger; it is a famous apex predator (meaning without a natural predator or enemy). The proverbial “king of beasts,” the lion has been one of the best-known wild animals since earliest times. Lions are most active at night and live in a variety of habitats but prefer grassland, savanna, dense scrub, and open woodland.</div>
+  <div class="diet-box"><a href="https://en.wikipedia.org/wiki/Carnivore" target="_blank">Carnivore</a></div>
+  
+<script>
+  let startX = 0;
+  document.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  document.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+    const next = document.body.dataset.next;
+    const prev = document.body.dataset.prev;
+
+    if (startX - endX > 50 && next) {
+      window.location.href = next;
+    } else if (endX - startX > 50 && prev) {
+      window.location.href = prev;
+    }
+  });
+</script>
+
+</body>
+</html>
